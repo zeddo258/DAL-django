@@ -5,11 +5,15 @@
 {% block content %}
 <div class="relative overflow-x-auto">
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <thead class="text-7xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
                     學生的輸入檔案
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    相似比例
+                </th>
+
                 <th scope="col" class="px-6 py-3">
                     學生學號/組別
                 </th>
@@ -22,13 +26,20 @@
             {% for html in html_list %}
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <a href="{% url "view_html" hw_html=hw_html class_html=class_html type_html=type_html student_html=student_html file_name=html %}">
-                        {{html}}
+                    <a href="{% url "view_html" hw_html=hw_html class_html=class_html type_html=type_html student_html=student_html file_name=html.name %}">
+                        {{html.name}}
                     </a>
                 </th>
 
                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <a href="{% url "view_html" hw_html=hw_html class_html=class_html type_html=type_html student_html=student_html file_name=html %}">
+                    <a href="{% url "view_html" hw_html=hw_html class_html=class_html type_html=type_html student_html=student_html file_name=html.name %}">
+                        {{html.ratio}}
+                    </a>
+                </th>
+                
+
+                <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <a href="{% url "view_html" hw_html=hw_html class_html=class_html type_html=type_html student_html=student_html file_name=html.name %}">
                         {{student_html}}
                     </a>
                 </th>

@@ -15,7 +15,7 @@ from django.urls import reverse_lazy
 
 from DAL import settings
 
-from . models import UploadedFile, Program
+from . models import UploadedFile, Program, CompareFile
 from . forms import UploadFileForm
 from . tokens import generate_token
 from . hwutil import hwutil
@@ -108,16 +108,31 @@ def home_work(request, hw_name):
                 if form.is_valid():
                     for uploaded_file in request.FILES.getlist('files'):
                         UploadedFile.objects.create(file=uploaded_file)
-                    hwutil.process_src_files(hwutil, code_file_dest, data_file_path, view_file_dest)
+                        
+                    uploaded_info = {}
+                    uploaded_info['has_command'] = False
+                    uploaded_info['has_teacher_code'] = False
+                    hwutil.process_src_files(hwutil, code_file_dest, data_file_path, view_file_dest, uploaded_info)
                     # Handle files that got upload to '/uploads'
-                    # should be empty afterwardth, view_file_dest)
+                    # should be empty afterward, view_file_dest)
 
+                    # if homework is missing command.txt and code.cpp
+                    # rerender and send over error messages
                     if not hwutil.check_for_requirement(code_file_dest, detail):
                             detail['form'] = form
                             detail['home_work'] = hwutil.get_all_hw() 
                             detail['home_work'].remove('uploads')
                             return render(request, 'hw_index.html', detail)
-                    dal_util.compile_multiple(dal_util, code_file_dest, program_list, view_file_dest, hw_name)
+                      
+                    # Compile all cpp code  
+                    dal_util.compile_multiple(dal_util, code_file_dest, 
+                                                              program_list, view_file_dest, hw_name)
+                    
+                    # If reuploaded version has command or teacher code inside
+                    # re-execute everything
+                    if uploaded_info['has_command'] is True or uploaded_info['has_teacher_code'] is True:
+                        dal_util.execute(code_file_dest, view_file_dest, hw_name)
+                        
                     
                     files = os.listdir(code_file_dest)
                     if ('std_code' in files ) and 'command.txt' in files:
@@ -129,7 +144,7 @@ def home_work(request, hw_name):
                         student_res = ''.join([code_file_dest, '/', f])
                         student_diff = ''.join([view_file_dest, '/', f])
                         if os.path.exists(student_diff):              
-                            flag = dal_util.compare(teacher_res, student_res, student_diff)
+                            flag = dal_util.compare(teacher_res, student_res, student_diff, hw_type, view_file_dest, f)
 
             # If view field is not empty
             elif class_show is not None: 
@@ -259,12 +274,23 @@ def list_html(request, hw_html, class_html, type_html, student_html):
     if request.user.is_authenticated:
 
         path = ''.join(['./templates/', hw_html, '/', class_html, '/', type_html, '/', student_html])
+        
         html_list = []
         if os.path.exists(path):
             for f in os.listdir(path):
+                view_path = ''.join([path,'/', f])
                 if 'input' not in f:
-                    html_list.append(f)
-        html_list.sort()
+                    compare_file = CompareFile.objects.get(view_path=view_path)
+                    html_list.append({
+                        'name' : f,
+                        'ratio' : compare_file.similarity_ratio
+                    })
+                    
+                    html_list = sorted(html_list, key=lambda d: d['name']) 
+                    
+
+
+        
                 
         return render(request, 'list.html', {'html_list': html_list, 
                                              'hw_html' : hw_html,

@@ -11,3 +11,15 @@ class Program(models.Model):
     hw_name = models.CharField(max_length=200, null=True)
     def __str__(self):
         return self.name
+    
+
+class CompareFile(models.Model):
+    name = models.CharField(max_length=100)
+    similarity_ratio = models.CharField(max_length=100)
+    view_path = models.CharField(max_length=100, null=True)
+    program = models.ForeignKey(Program, on_delete=models.CASCADE)
+    
+    
+    
+    def __str__(self):
+        return self.name
