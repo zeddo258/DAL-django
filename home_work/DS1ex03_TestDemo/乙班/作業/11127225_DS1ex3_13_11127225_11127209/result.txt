@@ -1,0 +1,350 @@
+spawn ./11127225_DS1ex3_13_11127225_11127209
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 1
+
+Input a file number: 301
+
+OID	Arrival	Duration	TimeOut
+103	6	7	15
+104	11	9	22
+112	5	6	13
+101	3	9	12
+106	6	9	17
+108	6	8	18
+105	10	6	20
+
+Reading data: 74 ms
+Sorting data: 16 ms
+Writing data: 94 ms
+
+See sorted301.txt
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 2
+
+See output301.txt
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 1
+
+Input a file number: 302
+
+OID	Arrival	Duration	TimeOut
+104	601	3	608
+132	600	7	607
+101	601	6	608
+119	6	450	500
+122	250	1	251
+120	1	500	502
+116	6	6	507
+105	601	2	608
+135	501	7	515
+103	601	1	608
+121	1	10	11
+111	6	4	508
+142	501	80	610
+102	601	5	608
+115	6	9	509
+108	604	3	615
+107	603	3	612
+106	601	1	608
+
+Reading data: 62 ms
+Sorting data: 5 ms
+Writing data: 17 ms
+
+See sorted302.txt
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 2
+
+See output302.txt
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 1
+
+Input a file number: 303
+
+OID	Arrival	Duration	TimeOut
+21	50	100	150
+22	50	10	160
+23	50	100	150
+54	50	10	160
+55	150	1	151
+10	160	1	161
+11	160	1	161
+12	160	1	161
+13	160	1	161
+14	160	1	162
+15	160	1	161
+16	160	1	161
+66	160	1	161
+67	160	1	161
+68	160	1	161
+69	160	1	161
+24	161	2	163
+25	161	2	163
+32	165	2	167
+33	165	4	169
+34	165	1	168
+35	167	2	171
+45	173	4	177
+46	173	3	176
+47	173	3	179
+48	173	1	174
+49	176	1	177
+
+Reading data: 56 ms
+Sorting data: 4 ms
+Writing data: 20 ms
+
+See sorted303.txt
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 2
+
+See output303.txt
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 1
+
+Input a file number: 304
+
+OID	Arrival	Duration	TimeOut
+120	1	500	502
+121	1	10	11
+111	6	4	508
+115	6	9	509
+116	6	6	507
+119	6	450	500
+122	250	1	251
+135	501	7	515
+142	501	80	610
+132	600	7	607
+101	601	6	608
+102	601	5	608
+131	2	95	446
+103	601	1	608
+104	601	3	608
+105	601	2	608
+106	601	1	608
+107	603	3	612
+117	45	8	53
+108	604	3	615
+206	97	8	189
+370	501	82	583
+272	1	5	94
+298	6	85	106
+231	600	87	687
+274	50	98	408
+205	601	8	609
+267	30	51	131
+
+Reading data: 55 ms
+Sorting data: 6 ms
+Writing data: 19 ms
+
+See sorted304.txt
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 2
+
+See output304.txt
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 1
+
+Input a file number: 305
+
+OID	Arrival	Duration	TimeOut
+20	1	6	7
+21	1	5	7
+22	1	6	7
+23	1	1	6
+24	1	1	7
+13	7	5	14
+14	7	5	13
+15	7	5	14
+16	7	5	13
+17	10	5	15
+18	11	4	15
+19	12	3	15
+20	13	2	15
+31	15	50	65
+32	16	2	18
+33	16	2	18
+34	16	1	19
+35	16	1	19
+36	16	1	20
+37	16	1	20
+38	16	1	21
+39	16	1	21
+40	16	1	22
+41	16	1	22
+42	16	1	66
+2015	2014	365	2379
+2017	32767	32767	65534
+
+Reading data: 54 ms
+Sorting data: 4 ms
+Writing data: 33 ms
+
+See sorted305.txt
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 2
+
+See output305.txt
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 1
+
+Input a file number: 306
+
+OID	Arrival	Duration	TimeOut
+10	2	5	10
+12	5	6	13
+3	6	7	15
+6	6	9	17
+8	6	8	18
+5	10	6	20
+4	11	9	22
+220	51	500	552
+221	51	10	61
+211	56	496	558
+215	56	9	559
+216	56	6	557
+219	56	450	550
+222	250	1	251
+235	551	7	565
+242	557	3	560
+232	600	7	608
+201	601	6	608
+202	601	5	608
+203	601	1	608
+204	601	3	608
+205	601	2	608
+206	601	1	608
+301	750	100	850
+302	750	10	860
+303	750	100	850
+304	750	10	860
+305	850	1	851
+306	860	1	861
+307	860	1	861
+308	860	1	861
+309	860	1	861
+310	860	1	861
+311	860	1	861
+312	860	1	861
+313	860	1	861
+314	860	1	862
+315	860	1	861
+316	860	1	861
+324	861	2	863
+325	861	2	863
+332	865	2	867
+333	865	4	869
+334	865	1	868
+335	867	2	871
+345	873	4	877
+346	873	3	876
+347	873	3	879
+348	873	1	874
+349	876	1	877
+420	1001	6	1007
+421	1001	5	1007
+422	1001	6	1007
+423	1001	1	1006
+424	1001	1	1007
+413	1007	5	1014
+414	1007	5	1013
+415	1007	5	1014
+416	1007	5	1013
+417	1010	5	1015
+418	1011	4	1015
+419	1012	3	1015
+420	1013	2	1015
+431	1015	50	1065
+432	1016	2	1018
+433	1016	2	1018
+434	1016	1	1019
+435	1016	1	1019
+436	1016	1	1020
+437	1016	1	1020
+438	1016	1	1021
+439	1016	1	1021
+440	1016	1	1022
+441	1016	1	1022
+442	1016	1	1066
+2015	2014	365	2379
+2017	32767	32767	65534
+
+Reading data: 47 ms
+Sorting data: 14 ms
+Writing data: 29 ms
+
+See sorted306.txt
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 2
+
+See output306.txt
+
+***  Simulate FIFO Queues  ***
+* 0. Quit Program            *
+* 1. Sort a file             *
+* 2. Simulate one FIFO queue *
+******************************
+Please input a command(0, 1, 2): 0
+
+sh: 1: pause: not found

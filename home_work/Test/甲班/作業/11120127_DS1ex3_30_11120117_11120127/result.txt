@@ -1,0 +1,28 @@
+spawn ./11120127_DS1ex3_30_11120117_11120127
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 1
+
+Input a file number: 301
+
+2
+1
+302
+2
+1
+303
+2
+1
+304
+2
+1
+305
+2
+1
+306
+2
+0

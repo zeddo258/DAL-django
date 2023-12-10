@@ -1,0 +1,94 @@
+spawn ./11127218_Φú£τ╣│_DS1ex3_10_11127218_11127243
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+* 3. Simulate two queues by SQF      *
+**************************************
+
+Input a command(0, 1, 2, 3): 1
+
+input a file number :301
+	OID	Arrival	Duration	TimeOut
+(1)	103	6	7	115
+(2)	104	11	9	185
+(3)	112	5	6	95
+(4)	101	3	9	85
+(5)	106	6	9	135
+(6)	108	6	8	145
+(7)	105	10	6	165
+
+Reading data: 0 clocks (0.00 ms).
+Sorting data: 0 clocks (0.00 ms).
+Writing data: 0 clocks (0.00 ms).
+
+See sorted301.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+* 3. Simulate two queues by SQF      *
+**************************************
+
+Input a command(0, 1, 2, 3): 3
+The simulation is running...
+See double301.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+* 3. Simulate two queues by SQF      *
+**************************************
+
+Input a command(0, 1, 2, 3): 1
+
+input a file number :302
+	OID	Arrival	Duration	TimeOut
+(1)	104	601	3	6045
+(2)	132	600	7	6035
+(3)	101	601	6	6045
+(4)	119	6	450	4965
+(5)	122	250	1	2475
+(6)	120	1	500	4985
+(7)	116	6	6	5035
+(8)	105	601	2	6045
+(9)	135	501	7	5115
+(10)	103	601	1	6045
+(11)	121	1	10	75
+(12)	111	6	4	5045
+(13)	142	501	80	6065
+(14)	102	601	5	6045
+(15)	115	6	9	5055
+(16)	108	604	3	6115
+(17)	107	603	3	6085
+(18)	106	601	1	608
+
+Reading data: 0 clocks (0.00 ms).
+Sorting data: 0 clocks (0.00 ms).
+Writing data: 0 clocks (0.00 ms).
+
+See sorted302.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+* 3. Simulate two queues by SQF      *
+**************************************
+
+Input a command(0, 1, 2, 3): 3
+1
+303
+3
+1
+304
+3
+1
+305
+3
+1
+306
+3
+0

@@ -1,0 +1,146 @@
+spawn ./11127142_Φú£τ╣│_DS1ex3_21_11127142_11127162(µîæµê░)
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):1
+
+Input a file number :301
+
+Loading data: 51 clocks (51.00 ms).
+Sorting data: 2 clocks (2.00 ms).
+Writing data: 26 clocks (26.00 ms).
+
+See the sorted301.txt!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):3
+seeing the double301.txt!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):1
+
+Input a file number :302
+
+Loading data: 49 clocks (49.00 ms).
+Sorting data: 9 clocks (9.00 ms).
+Writing data: 35 clocks (35.00 ms).
+
+See the sorted302.txt!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):3
+seeing the double302.txt!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):1
+
+Input a file number :303
+
+Loading data: 41 clocks (41.00 ms).
+Sorting data: 18 clocks (18.00 ms).
+Writing data: 41 clocks (41.00 ms).
+
+See the sorted303.txt!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):3
+seeing the double303.txt!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):1
+
+Input a file number :304
+
+Loading data: 68 clocks (68.00 ms).
+Sorting data: 26 clocks (26.00 ms).
+Writing data: 59 clocks (59.00 ms).
+
+See the sorted304.txt!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):3
+seeing the double304.txt!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):1
+
+Input a file number :305
+
+Loading data: 55 clocks (55.00 ms).
+Sorting data: 30 clocks (30.00 ms).
+Writing data: 27 clocks (27.00 ms).
+
+See the sorted305.txt!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):3
+seeing the double305.txt!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):1
+
+Input a file number :306
+
+Loading data: 77 clocks (77.00 ms).
+Sorting data: 261 clocks (261.00 ms).
+Writing data: 36 clocks (36.00 ms).
+
+See the sorted306.txt!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):3
+seeing the double306.txt!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2, 3):0

@@ -1,0 +1,154 @@
+spawn ./11120406_DS1ex3_01_11120406_11127212
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):1
+
+Input a file number:301
+	OID	Arrival	Duration	TimeOut
+(1)	103	6	7	15
+(2)	104	11	9	22
+(3)	112	5	6	13
+(4)	101	3	9	12
+(5)	106	6	9	17
+(6)	108	6	8	18
+(7)	105	10	6	20
+
+Reading data: 74 clocks (0.07 ms).
+Sorting data: 2 clocks (0.00 ms).
+Writing data: 119 clocks (0.12 ms).
+
+see sorted301.txt
+
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):3
+
+Input a file number:1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):302
+
+command error!!
+
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):3
+
+Input a file number:1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):303
+
+command error!!
+
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):3
+
+Input a file number:1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):304
+
+command error!!
+
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):3
+
+Input a file number:1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):305
+
+command error!!
+
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):3
+
+Input a file number:1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):306
+
+command error!!
+
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):3
+
+Input a file number:0
+
+### sorted0.txt does not exist! ###
+
+**** Simulate FIFO Queue by SQF *****
+* 0. Quit                           *
+* 1. Sort a file                    *
+* 2. Simulate one FIFO queue        *
+* 3. Simulate muto FIFO queue       *
+*************************************
+Input a command(0, 1, 2, 3):

@@ -1,0 +1,155 @@
+spawn ./11127128_DS1ex3_10920151_11127128
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 1
+
+Input a file number: 301
+
+Original Data:
+	OID	Arrival	Duration	TimeOut
+(1)	103	6	7	15
+(2)	104	11	9	22
+(3)	112	5	6	13
+(4)	101	3	9	12
+(5)	106	6	9	17
+(6)	108	6	8	18
+(7)	105	10	6	20
+
+
+Reading data: 66 clocks (66 ms).
+Sorting data: 2 clocks (2 ms).
+Writing data: 102 clocks (102 ms).
+
+Sorted Data:
+	OID	Arrival	Duration	TimeOut
+(1)	101	3	9	12
+(2)	112	5	6	13
+(3)	103	6	7	15
+(4)	106	6	9	17
+(5)	108	6	8	18
+(6)	105	10	6	20
+(7)	104	11	9	22
+
+The sorted data has been included in "sorted301.txt".
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+Input a file number: 1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 302
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+Input a file number: 1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 303
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+Input a file number: 1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 304
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+Input a file number: 1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 305
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+Input a file number: 1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 306
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+Input a file number: 0
+
+### sorted0.txt does not exist! ###
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2):

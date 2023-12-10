@@ -1,0 +1,6 @@
+	[Abort Jobs]
+	OID	CID	Abort	Delay
+	[Jobs Done]
+	OID	Departure	Delay
+[Average Delay] -nan ms
+[Success Rate]  -nan %

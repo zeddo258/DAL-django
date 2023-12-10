@@ -1,0 +1,11 @@
+        [Abort List]
+        OID     Abort   Delay
+1	241609954	21862	0
+
+        [Done List]
+        OID     Departure       Delay
+
+[[Average Delay]        0.000000 ms
+
+[Success Rate]  0.000000%
+

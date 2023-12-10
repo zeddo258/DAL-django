@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+                                 
+歡迎來到作業評分系統                      
+                                
+                    
+請點以下的連結來完成帳號註冊                    
+                    
+你的帳號為： {{mail}}
+密碼：{{password}}  
+https://{{ domain }}:11111{% url "activate" uidb64=uid token=token %}
+
+{% endautoescape %}

@@ -1,0 +1,356 @@
+spawn ./11127106_DS1ex3_03_11127106_11127118
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 1
+
+Input a file number: 301
+
+	OID	Arrival	Duration	TimeOut
+(1)	103	6	7	15
+(2)	104	11	9	22
+(3)	112	5	6	13
+(4)	101	3	9	12
+(5)	106	6	9	17
+(6)	108	6	8	18
+(7)	105	10	6	20
+
+Reading data: 38 clocks (38.00 ms).
+Sorting data: 4 clocks (4.00 ms).
+Writing data: 122 clocks (122.00 ms).
+
+See sorted301.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+The simulation is running...
+See output301.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 1
+
+Input a file number: 302
+
+	OID	Arrival	Duration	TimeOut
+(1)	104	601	3	608
+(2)	132	600	7	607
+(3)	101	601	6	608
+(4)	119	6	450	500
+(5)	122	250	1	251
+(6)	120	1	500	502
+(7)	116	6	6	507
+(8)	105	601	2	608
+(9)	135	501	7	515
+(10)	103	601	1	608
+(11)	121	1	10	11
+(12)	111	6	4	508
+(13)	142	501	80	610
+(14)	102	601	5	608
+(15)	115	6	9	509
+(16)	108	604	3	615
+(17)	107	603	3	612
+(18)	106	601	1	608
+
+Reading data: 47 clocks (47.00 ms).
+Sorting data: 20 clocks (20.00 ms).
+Writing data: 86 clocks (86.00 ms).
+
+See sorted302.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+The simulation is running...
+See output302.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 1
+
+Input a file number: 303
+
+	OID	Arrival	Duration	TimeOut
+(1)	21	50	100	150
+(2)	22	50	10	160
+(3)	23	50	100	150
+(4)	54	50	10	160
+(5)	55	150	1	151
+(6)	10	160	1	161
+(7)	11	160	1	161
+(8)	12	160	1	161
+(9)	13	160	1	161
+(10)	14	160	1	162
+(11)	15	160	1	161
+(12)	16	160	1	161
+(13)	66	160	1	161
+(14)	67	160	1	161
+(15)	68	160	1	161
+(16)	69	160	1	161
+(17)	24	161	2	163
+(18)	25	161	2	163
+(19)	32	165	2	167
+(20)	33	165	4	169
+(21)	34	165	1	168
+(22)	35	167	2	171
+(23)	45	173	4	177
+(24)	46	173	3	176
+(25)	47	173	3	179
+(26)	48	173	1	174
+(27)	49	176	1	177
+
+Reading data: 32 clocks (32.00 ms).
+Sorting data: 26 clocks (26.00 ms).
+Writing data: 102 clocks (102.00 ms).
+
+See sorted303.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+The simulation is running...
+See output303.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 1
+
+Input a file number: 304
+
+	OID	Arrival	Duration	TimeOut
+(1)	120	1	500	502
+(2)	121	1	10	11
+(3)	111	6	4	508
+(4)	115	6	9	509
+(5)	116	6	6	507
+(6)	119	6	450	500
+(7)	122	250	1	251
+(8)	135	501	7	515
+(9)	142	501	80	610
+(10)	132	600	7	607
+(11)	101	601	6	608
+(12)	102	601	5	608
+(13)	131	2	95	446
+(14)	103	601	1	608
+(15)	104	601	3	608
+(16)	105	601	2	608
+(17)	106	601	1	608
+(18)	107	603	3	612
+(19)	117	45	8	53
+(20)	108	604	3	615
+(21)	206	97	8	189
+(22)	370	501	82	583
+(23)	272	1	5	94
+(24)	298	6	85	106
+(25)	231	600	87	687
+(26)	274	50	98	408
+(27)	205	601	8	609
+(28)	267	30	51	131
+
+Reading data: 22 clocks (22.00 ms).
+Sorting data: 63 clocks (63.00 ms).
+Writing data: 117 clocks (117.00 ms).
+
+See sorted304.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+The simulation is running...
+See output304.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 1
+
+Input a file number: 305
+
+	OID	Arrival	Duration	TimeOut
+(1)	20	1	6	7
+(2)	21	1	5	7
+(3)	22	1	6	7
+(4)	23	1	1	6
+(5)	24	1	1	7
+(6)	13	7	5	14
+(7)	14	7	5	13
+(8)	15	7	5	14
+(9)	16	7	5	13
+(10)	17	10	5	15
+(11)	18	11	4	15
+(12)	19	12	3	15
+(13)	20	13	2	15
+(14)	31	15	50	65
+(15)	32	16	2	18
+(16)	33	16	2	18
+(17)	34	16	1	19
+(18)	35	16	1	19
+(19)	36	16	1	20
+(20)	37	16	1	20
+(21)	38	16	1	21
+(22)	39	16	1	21
+(23)	40	16	1	22
+(24)	41	16	1	22
+(25)	42	16	1	66
+(26)	2015	2014	365	2379
+(27)	2017	32767	32767	65534
+
+Reading data: 21 clocks (21.00 ms).
+Sorting data: 54 clocks (54.00 ms).
+Writing data: 119 clocks (119.00 ms).
+
+See sorted305.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+The simulation is running...
+See output305.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 1
+
+Input a file number: 306
+
+	OID	Arrival	Duration	TimeOut
+(1)	10	2	5	10
+(2)	12	5	6	13
+(3)	3	6	7	15
+(4)	6	6	9	17
+(5)	8	6	8	18
+(6)	5	10	6	20
+(7)	4	11	9	22
+(8)	220	51	500	552
+(9)	221	51	10	61
+(10)	211	56	496	558
+(11)	215	56	9	559
+(12)	216	56	6	557
+(13)	219	56	450	550
+(14)	222	250	1	251
+(15)	235	551	7	565
+(16)	242	557	3	560
+(17)	232	600	7	608
+(18)	201	601	6	608
+(19)	202	601	5	608
+(20)	203	601	1	608
+(21)	204	601	3	608
+(22)	205	601	2	608
+(23)	206	601	1	608
+(24)	301	750	100	850
+(25)	302	750	10	860
+(26)	303	750	100	850
+(27)	304	750	10	860
+(28)	305	850	1	851
+(29)	306	860	1	861
+(30)	307	860	1	861
+(31)	308	860	1	861
+(32)	309	860	1	861
+(33)	310	860	1	861
+(34)	311	860	1	861
+(35)	312	860	1	861
+(36)	313	860	1	861
+(37)	314	860	1	862
+(38)	315	860	1	861
+(39)	316	860	1	861
+(40)	324	861	2	863
+(41)	325	861	2	863
+(42)	332	865	2	867
+(43)	333	865	4	869
+(44)	334	865	1	868
+(45)	335	867	2	871
+(46)	345	873	4	877
+(47)	346	873	3	876
+(48)	347	873	3	879
+(49)	348	873	1	874
+(50)	349	876	1	877
+(51)	420	1001	6	1007
+(52)	421	1001	5	1007
+(53)	422	1001	6	1007
+(54)	423	1001	1	1006
+(55)	424	1001	1	1007
+(56)	413	1007	5	1014
+(57)	414	1007	5	1013
+(58)	415	1007	5	1014
+(59)	416	1007	5	1013
+(60)	417	1010	5	1015
+(61)	418	1011	4	1015
+(62)	419	1012	3	1015
+(63)	420	1013	2	1015
+(64)	431	1015	50	1065
+(65)	432	1016	2	1018
+(66)	433	1016	2	1018
+(67)	434	1016	1	1019
+(68)	435	1016	1	1019
+(69)	436	1016	1	1020
+(70)	437	1016	1	1020
+(71)	438	1016	1	1021
+(72)	439	1016	1	1021
+(73)	440	1016	1	1022
+(74)	441	1016	1	1022
+(75)	442	1016	1	1066
+(76)	2015	2014	365	2379
+(77)	2017	32767	32767	65534
+
+Reading data: 30 clocks (30.00 ms).
+Sorting data: 243 clocks (243.00 ms).
+Writing data: 198 clocks (198.00 ms).
+
+See sorted306.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+The simulation is running...
+See output306.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 0
+
+sh: 1: pause: not found

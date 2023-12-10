@@ -1,0 +1,161 @@
+spawn ./11127220_Φú£τ╣│_DS1ex3_3_11120427_11127220
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2): 1
+
+Input a file number: 301
+
+	OID	Arrival	Duration	TimeOut
+(1)	101	3	9	12
+(2)	112	5	6	13
+(3)	103	6	7	15
+(4)	106	6	9	17
+(5)	108	6	8	18
+(6)	105	10	6	20
+(7)	104	11	9	22
+
+Reading data: 43 clocks(43.00 ms).
+Sorting data: 0 clocks(0.00 ms).
+Writing data: 0 clocks(0.00 ms).
+
+See sorted301.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2): 2
+
+Input a file number: 1
+
+sorted1.txt does not exist!
+
+The simulation is running...
+See output1.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2): 302
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2): 2
+
+Input a file number: 1
+
+sorted1.txt does not exist!
+
+The simulation is running...
+See output1.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2): 303
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2): 2
+
+Input a file number: 1
+
+sorted1.txt does not exist!
+
+The simulation is running...
+See output1.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2): 304
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2): 2
+
+Input a file number: 1
+
+sorted1.txt does not exist!
+
+The simulation is running...
+See output1.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2): 305
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2): 2
+
+Input a file number: 1
+
+sorted1.txt does not exist!
+
+The simulation is running...
+See output1.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2): 306
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2): 2
+
+Input a file number: 0
+
+sorted0.txt does not exist!
+
+The simulation is running...
+See output0.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a choice(0, 1, 2):

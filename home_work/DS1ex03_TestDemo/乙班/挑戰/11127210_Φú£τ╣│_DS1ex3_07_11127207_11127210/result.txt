@@ -1,0 +1,49 @@
+spawn ./11127210_Φú£τ╣│_DS1ex3_07_11127207_11127210
+
+*** Simulate FIFO Queues by SQF ***
+*0. Quit                          *
+*1. Sort a file                   *
+*2. Simulate one FIFO queue       *
+*3. Simulate two queues by SQF    *
+***********************************
+Input a command( 0, 1, 2, 3 ): 1
+
+Input a file number(ex.301, 302,... ) : 301
+OID	Arrival	Duration	TimeOut
+(1)    101   3   9   12
+(2)    112   5   6   13
+(3)    103   6   7   15
+(4)    106   6   9   17
+(5)    108   6   8   18
+(6)    105   10   6   20
+(7)    104   11   9   22
+Reading data: 0.062 clocks (0.062ms).
+Sorting data: 0.003 clocks (0.003ms).
+Writing data: 0.087 clocks (0.087ms).
+see sorted301.txt
+
+*** Simulate FIFO Queues by SQF ***
+*0. Quit                          *
+*1. Sort a file                   *
+*2. Simulate one FIFO queue       *
+*3. Simulate two queues by SQF    *
+***********************************
+Input a command( 0, 1, 2, 3 ): 3
+
+Input a file number(ex.301, 302,... ) : 1
+There is no file
+302
+3
+1
+303
+3
+1
+304
+3
+1
+305
+3
+1
+306
+3
+0

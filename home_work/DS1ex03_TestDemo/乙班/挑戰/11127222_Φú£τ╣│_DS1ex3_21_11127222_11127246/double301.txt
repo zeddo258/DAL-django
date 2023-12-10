@@ -1,0 +1,13 @@
+	[Abort Jobs]
+	OID	CID	Abort	CID	Delay
+[1]		103	15	1	9
+[2]		108	18	1	12
+[3]		104	22	1	11
+[4]		106	17	2	11
+[5]		105	20	2	10
+	[Done Jobs]
+	OID	CID	Departure	Delay
+[1]		112	1	11	0
+[2]		112	2	11	0
+[Average Delay]7.57 ms
+[Success Rate]28.57 %

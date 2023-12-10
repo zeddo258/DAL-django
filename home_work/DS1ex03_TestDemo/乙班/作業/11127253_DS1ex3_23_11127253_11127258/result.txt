@@ -1,0 +1,143 @@
+spawn ./11127253_DS1ex3_23_11127253_11127258
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 1
+
+Input a file number: 301
+
+        OID	Arrival	Duration	TimeOut
+(1)	103	6	7	15
+(2)	104	11	9	22
+(3)	112	5	6	13
+(4)	101	3	9	12
+(5)	106	6	9	17
+(6)	108	6	8	18
+(7)	105	10	6	20
+
+Reading data: 0.097 clocks (0.10 ms).
+Sorting data: 0.00 clocks (0.00 ms).
+Writing data: 0.12 clocks (0.12 ms).
+
+See sorted301.txt
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+Input a file number: 1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 302
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+Input a file number: 1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 303
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+Input a file number: 1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 304
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+Input a file number: 1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 305
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+Input a file number: 1
+
+### sorted1.txt does not exist! ###
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 306
+
+Command does not exist!
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2): 2
+
+Input a file number: 0
+
+### sorted0.txt does not exist! ###
+
+**** Simulate FIFO Queues by SQF *****
+* 0. Quit                            *
+* 1. Sort a file                     *
+* 2. Simulate one FIFO queue         *
+**************************************
+Input a command(0, 1, 2):

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAL</title>
+    <meta name="author" content="David Grzyb">
+    <meta name="description" content="">
+
+    <!-- Tailwind -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+        .font-family-karla { font-family: karla; }
+        .bg-sidebar { background: #3d68ff; }
+        .cta-btn { color: #3d68ff; }
+        .upgrade-btn { background: #1947ee; }
+        .upgrade-btn:hover { background: #0038fd; }
+        .active-nav-link { background: #1947ee; }
+        .nav-item:hover { background: #1947ee; }
+        .account-link:hover { background: #3d68ff; }
+    </style>
+</head>
+<body class="bg-gray-700 font-family-karla flex">
+
+    <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+        <div class="p-6">
+            <a href="/home" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">DAL</a>
+            <a href="/add_hw" class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
+                <i class="fas fa-plus mr-3"></i> 新增作業
+            </a>
+        </div>
+
+        <nav class="text-white text-base font-semibold pt-3">
+            {% for hw in home_work %}
+            <a href="{% url "home_work" hw_name=hw %}" class="flex items-center nav-item text-white py-4 pl-6 nav-item">
+                <i class="fas fa-tachometer-alt mr-3"></i>
+                {{hw}}
+            </a>
+            {% endfor %}
+        </nav>
+        
+
+        <a href="/delete_hw" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
+            <i class="fas fa-arrow-circle-up mr-3"></i>
+            刪除作業
+        </a>
+
+
+    </aside>
+
+    <aside class="relative bg-gray-800 h-screen w-52 hidden sm:block shadow-xl">
+
+        <div class="p-6">
+
+            <button id="upload-code-btn" class="w-full bg-white cta-btn font-semibold mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
+                <i class="fas fa-plus mr-3"></i> 上傳程式碼
+            </button>
+
+            <button id="view-code-btn" class="w-full bg-white cta-btn font-semibold  mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
+                <i class="fas fa-code mr-3"></i> 查看結果
+            </button>
+
+        </div>
+
+    </aside>
+
+    <div class="w-full flex flex-col h-screen overflow-y-hidden">
+
+        <!-- Desktop Header -->
+        <header class="w-full items-center bg-gray-900 py-2 px-6 hidden sm:flex">
+            <div class="w-1/2"></div>
+            <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
+                <p class="text-sm text-white">{{user.username}}</p>
+            <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+                <img src="https://api.dicebear.com/7.x/big-smile/svg?seed=Cleo">
+            </button>
+            <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
+            <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
+                <a href="/account" class="block px-4 py-2 account-link hover:text-white">Account</a>
+                {% if user.is_staff %}
+                <a href="/sign_up" class="block px-4 py-2 account-link hover:text-white">Add an account</a>
+                {% endif %}
+                <a href="/sign_out" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="w-full overflow-x-hidden flex flex-col">
+            <main class="w-full flex-grow p-6">
+                {% if not command_exist %}
+                <div id="modal_command" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                  
+                    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                        <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                          <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                            <div class="sm:flex sm:items-start">
+                              <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                                </svg>
+                              </div>
+                              <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Error</h3>
+                                <div class="mt-2">
+                                  <p class="text-sm text-gray-500">指令尚未上傳 ( command.txt )</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                            <button id="modal_command_btn" type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Deactivate</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                    
+                        let modal_btn_command = document.getElementById("modal_command_btn")
+        
+                        modal_btn_command.onclick = function() {
+                            document.getElementById("modal_command").style.display = "none"
+                        }
+                        
+                    </script>
+                </div>
+                {% endif %}
+
+                {% if not std_code_exist %}
+                <div id="modal_code" class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+                  
+                    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+                      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                        <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                          <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                            <div class="sm:flex sm:items-start">
+                              <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                                </svg>
+                              </div>
+                              <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                                <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Error</h3>
+                                <div class="mt-2">
+                                  <p class="text-sm text-gray-500">老師的程式碼尚未上傳 ( code.cpp )</p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                            <button id="modal_code_btn" type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">Deactivate</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <script>
+                    
+                        let modal_btn_code = document.getElementById("modal_code_btn")
+        
+                        modal_btn_code.onclick = function() {
+                            document.getElementById("modal_code").style.display = "none"
+                        }
+        
+                    </script>
+                </div>
+                {% endif %}
+                  
+
+                
+                <div class="flex flex-wrap justify-center items-center">
+                
+                    <div class="w-full lg:w-1/2 mt-6 pl-0 lg:pl-2">
+                        {% if view_upload_code %}
+                        <div class="leading-loose" id="upload_form">
+                        {% else %}
+                        <div class="leading-loose hidden" id="upload_form">
+                        {% endif %}
+                            <form class="p-10 bg-gray-800 rounded shadow-xl" enctype="multipart/form-data" method="POST">
+                                {% csrf_token %}
+
+                                <label for="class" class="block text-sm text-white font-bold">班級</label>
+                                <select name="class" id="class" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option class="block text-sm text-gray-800 font-bold" value="乙班">乙班</option>
+                                <option class="block text-sm text-gray-800 font-bold" value="甲班">甲班</option>
+                                </select>
+
+                                <label for="type" class="block text-sm text-white font-bold">班級</label>
+                                <select name="type" id="type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option class="block text-sm text-gray-800 font-bold" value="作業">作業</option>
+                                <option class="block text-sm text-gray-800 font-bold" value="挑戰">挑戰</option>
+                                </select>
+
+                             
+                                
+                                <div class="mt-2">
+                                    <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-600 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-700 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                                        <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                            <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                            </svg>
+                                            <p class="mb-2 text-sm text-white"><span class="font-semibold">程式碼上傳格式: </p>
+                                            <p class="mb-2 text-sm text-white"><span class="font-semibold">老師(code.cpp) </p>
+                                            <p class="mb-2 text-sm text-white"><span class="font-semibold">學生(.zip 或 .cpp )</p>
+                                            <p class="mb-2 text-sm text-white"><span class="font-semibold">指令(command.txt) </span>{{ form.as_p }}</p>
+                                        </div> 
+                                        
+                                    </label>
+                                </div> 
+
+
+                                
+                                <div class="mt-6">
+                                    <button class="px-4 py-1 text-white font-extrabold tracking-wider bg-sidebar rounded" type="submit">送出</button>
+                                </div>
+                            </form>
+
+                            <p class="text-xl pb-3 flex items-center text-white">
+                                <i class="fas fa-list mr-3"></i> Code reports
+                            </p>
+                            <div class="bg-white overflow-auto">
+                                <table class="min-w-full bg-white">
+                                    <thead class="bg-gray-800 text-white">
+                                        <tr>
+                                            <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">學號</th>
+                                            <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">編譯狀態</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-gray-700">
+                                        {% for program in program_list %}
+                                        <tr class="border">
+                                            <td class="w-1/3 text-left py-3 px-4">{{program.name}}</td>
+                                            <td class="w-1/3 text-left py-3 px-4">{{program.state}}</td>
+                                        </tr>
+                                        {% endfor %}
+        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+                {% if view_code %}
+                <div class=" mt-12 " id="code_view">
+                {% else %}
+                <div class=" mt-12 hidden" id="code_view">
+                {% endif %}
+                    <form class="p-10 bg-gray-800 rounded shadow-xl" enctype="multipart/form-data" method="POST">
+                        {% csrf_token %}
+
+                        <label for="class_show" class="block text-sm text-white font-bold">班級</label>
+                        <select name="class_show" id="class_show" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="{{class_show}}" selected>目前正在顯示：{{class_show}}</option>
+                        <option class="block text-sm text-gray-800 font-bold" value="乙班">乙班</option>
+                        <option class="block text-sm text-gray-800 font-bold" value="甲班">甲班</option>
+                        </select>
+
+                        <label for="type_show" class="block text-sm text-white font-bold">作業類別</label>
+                        <select name="type_show" id="type_show" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="{{type_show}}" selected>目前正在顯示：{{type_show}}</option>
+                        <option class="block text-sm text-gray-800 font-bold" value="作業">作業</option>
+                        <option class="block text-sm text-gray-800 font-bold" value="挑戰">挑戰</option>
+                        </select>
+        
+
+
+                        <div class="mt-6">
+                            <button class="px-4 py-1 text-white font-extrabold tracking-wider bg-sidebar rounded" type="submit">送出</button>
+                        </div>
+
+                    </form>
+
+                    <p class="text-xl pb-3 flex items-center text-white">
+                        <i class="fas fa-list mr-3"></i> Code reports
+                    </p>
+                    <div class="bg-white overflow-auto">
+                        <table class="min-w-full bg-white">
+                            <thead class="bg-gray-800 text-white">
+                                <tr>
+                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">學號</th>
+                                    <th class="w-1/3 text-left py-3 px-4 uppercase font-semibold text-sm">編譯狀態</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                {% for html in html_list %}
+                           
+                                    <tr class="border">
+                                        <td class="w-1/3 text-left py-3 px-4">
+                                            <a target="_blank" href="{% url "list_html" hw_html=hw_html class_html=class_html type_html=type_html student_html=html %}">{{html.name}}</a>
+                                        </td>
+
+                                        <td class="w-1/3 text-left py-3 px-4">
+                                            <a target="_blank" href="{% url "list_html" hw_html=hw_html class_html=class_html type_html=type_html student_html=html %}">{{html.state}}</a>
+                                        </td>
+                                    </tr>
+                                       
+                                {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
+                  
+                
+                </div>
+
+            </main>
+
+            <script>
+                let form_btn = document.getElementById("upload-code-btn")
+                let view_btn = document.getElementById("view-code-btn")
+                form_btn.onclick = function() {
+                    document.getElementById("code_view").style.display = 'none'
+                    document.getElementById("upload_form").style.display = 'inline'
+                }
+
+                view_btn.onclick = function() {
+                    document.getElementById("code_view").style.display = 'inline'
+                    document.getElementById("upload_form").style.display = 'none'
+                }
+
+
+            </script>
+        </div>
+    </div>
+
+    <!-- AlpineJS -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+
+    <script>
+       
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAL</title>
+    <meta name="author" content="David Grzyb">
+    <meta name="description" content="">
+
+    <!-- Tailwind -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+        .font-family-karla { font-family: karla; }
+        .bg-sidebar { background: #3d68ff; }
+        .cta-btn { color: #3d68ff; }
+        .upgrade-btn { background: #1947ee; }
+        .upgrade-btn:hover { background: #0038fd; }
+        .active-nav-link { background: #1947ee; }
+        .nav-item:hover { background: #1947ee; }
+        .account-link:hover { background: #3d68ff; }
+    </style>
+</head>
+<body class="bg-gray-700 font-family-karla flex">
+
+    <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+        <div class="p-6">
+            <a href="/home" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">DAL</a>
+            <a href="/add_hw" class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
+                <i class="fas fa-plus mr-3"></i> 新增作業
+            </a>
+
+
+        </div>
+        
+        <nav class="text-white text-base font-semibold pt-3">
+            {% for hw in home_work %}
+            <a href="{% url "home_work" hw_name=hw %}" class="flex items-center nav-item text-white py-4 pl-6 nav-item">
+                <i class="fas fa-tachometer-alt mr-3"></i>
+                {{hw}}
+            </a>
+            {% endfor %}
+        </nav>
+        
+        <a href="/delete_hw" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
+            <i class="fas fa-arrow-circle-up mr-3"></i>
+            刪除作業
+        </a>
+
+    </aside>
+
+    <div class="w-full flex flex-col h-screen overflow-y-hidden">
+        {% if user_exist %}
+        <!--Warning modal-->
+        <div class="relative z-10" id="warning-modal" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+            <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+              <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                  <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                      <div class="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                        <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                        </svg>
+                      </div>
+                      <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                        <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">帳號已經存在</h3>
+                        <div class="mt-2">
+                          <p class="text-sm text-gray-500">請輸入別的帳號</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <button id="warning-modal-button" type="button" class="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto">確認</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script>
+                let modal_button = document.getElementById("warning-modal-button");
+                let modal = document.getElementById("warning-modal");
+                modal_button.onclick = function() {
+                    modal.style.display = "none"
+                }
+            </script>
+        </div>
+        {% endif %}
+        <!-- Desktop Header -->
+        <header class="w-full items-center bg-gray-900 py-2 px-6 hidden sm:flex">
+            <div class="w-1/2"></div>
+            <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
+                <p class="text-sm text-white">{{user.username}}</p>
+                <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+                    <img src="https://api.dicebear.com/7.x/big-smile/svg?seed=Cleo">
+                </button>
+                <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
+                <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
+                    <a href="/account" class="block px-4 py-2 account-link hover:text-white">Account</a>
+                    {% if user.is_staff %}
+                    <a href="/sign_up" class="block px-4 py-2 account-link hover:text-white">Add an account</a>
+                    {% endif %}
+                    <a href="/sign_out" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+                </div>
+            </div>
+        </header>
+    
+        <div class="w-full h-screen overflow-x-hidden flex flex-col">
+            <main class="w-full flex-grow p-6">
+                <div class="flex flex-wrap justify-center items-center">
+
+                    <div class="w-full lg:w-1/2 mt-6 pl-0 lg:pl-2">
+                        <div class="leading-loose">
+                            <form class="p-10 bg-gray-800 rounded shadow-xl" method="POST">
+                                {% csrf_token %}
+                                <p class="text-lg text-white font-bold pb-4">助教/課守之信箱</p>
+                                <div class="mt-2">
+                                    <label class="block text-sm text-gray-600 font-bold" for="email">Email</label>
+                                    <input class="w-full px-5  py-4 text-gray-700 bg-gray-200 rounded" id="email" name="email" type="text" required=""  aria-label="Email">
+                                </div> 
+
+                                <div class="mt-6">
+                                    <button class="px-4 py-1 text-white font-extrabold tracking-wider bg-sidebar rounded" type="submit">送出</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div>
+            </main>
+    
+            <footer class="w-full bg-gray-800 text-right p-4 text-white sticky bottom-0 ">
+                Built by <a class="underline">楊蔡仁傑</a>.
+            </footer>
+        </div>
+        
+    </div>
+
+    <!-- AlpineJS -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    <!-- ChartJS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+
+    <script>
+       
+    </script>
+</body>
+</html>

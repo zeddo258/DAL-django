@@ -1,0 +1,18 @@
+# my_script.exp
+
+set executable [lindex $argv 0]
+set command_file [lindex $argv 1]
+
+spawn $executable
+
+set fp [open $command_file r]
+expect -re {\S} {}
+after 20
+while {[gets $fp line] >= 0} {
+    send "$line\r"
+    expect -re {\S} {}
+    after 20
+}
+close $fp
+
+expect eof
