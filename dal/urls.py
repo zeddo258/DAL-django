@@ -1,5 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
@@ -14,4 +16,5 @@ urlpatterns = [
     path('account', views.account, name='account'),
     path('list_html/<hw_html>/<class_html>/<type_html>/<student_html>', views.list_html, name='list_html'),
     path('view_html/<hw_html>/<class_html>/<type_html>/<student_html>/<file_name>', views.view_html, name='view_html'),
+    path('password_change/', views.change_password, name='change_password'),
 ]

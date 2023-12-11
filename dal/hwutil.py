@@ -1,5 +1,6 @@
 import os
 import shutil
+from . models import Program
 from zipfile import ZipFile
 
 
@@ -136,6 +137,7 @@ class hwutil:
                         os.mkdir(view_file_final_dest)
                     else:
                         shutil.rmtree(view_file_final_dest)
+                        Program.objects.filter(name=file.strip('.cpp'),view_path=view_file_dest).delete()
                         os.mkdir(view_file_final_dest)
                         
                         
