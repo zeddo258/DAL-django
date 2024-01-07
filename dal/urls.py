@@ -17,4 +17,5 @@ urlpatterns = [
     path('list_html/<hw_html>/<class_html>/<type_html>/<student_html>', views.list_html, name='list_html'),
     path('view_html/<hw_html>/<class_html>/<type_html>/<student_html>/<file_name>', views.view_html, name='view_html'),
     path('password_change/', views.change_password, name='change_password'),
+    #path('compare_code/<hw_name>/<class_type>/<hw_type>', views.compare_code, name='compare_code'),
 ]

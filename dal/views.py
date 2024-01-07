@@ -1,5 +1,9 @@
+from __future__ import absolute_import, unicode_literals
+from celery import shared_task
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+
+
 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
@@ -26,6 +30,8 @@ import shutil
 import random
 import string
 import os 
+
+
 
 
 
@@ -56,7 +62,7 @@ def delete_hw(request):
                 shutil.rmtree('./home_work/' + hw_name)
                 shutil.rmtree('./templates/' + hw_name)
                 Program.objects.filter(hw_name=hw_name).delete()
-            except OSError as e:
+            except Exception as e:
                 print(e)
             return redirect('delete_hw')
         detail = {}
@@ -140,17 +146,24 @@ def home_work(request, hw_name):
                             return render(request, 'hw_index.html', detail)
                       
                     # Compile all cpp code  
-                    dal_util.compile_multiple(dal_util, code_file_dest, 
-                                                              program_list, view_file_dest, hw_name)
+                    dal_util.compile_multiple(dal_util, code_file_dest, view_file_dest, hw_name)
                     
                     # If reuploaded version has command or teacher code inside
                     # re-execute everything
+                    #compare_code(class_type=class_type, hw_name=hw_name, hw_type=hw_type)
+                    
+                    compare_code.delay(class_type=class_type, hw_name=hw_name, hw_type=hw_type)
+                    
+                    # return redirect('compare_code', class_type=class_type, hw_name=hw_name, hw_type=hw_type)
+                    '''
                     if uploaded_info['has_command'] is True or uploaded_info['has_teacher_code'] is True:
                         dal_util.execute(code_file_dest, view_file_dest, hw_name)
                     else:
                         dal_util.execute_reupload(code_file_dest, view_file_dest, hw_name)
-                        
                     
+                    
+                        
+            
                     files = os.listdir(code_file_dest)
                     if ('std_code' in files ) and 'command.txt' in files:
                         files.remove('std_code')
@@ -162,13 +175,16 @@ def home_work(request, hw_name):
                         student_diff = ''.join([view_file_dest, '/', f])
                         if os.path.exists(student_diff):              
                             flag = dal_util.compare(teacher_res, student_res, student_diff, hw_type, view_file_dest, f)
+                    '''
+                
 
             # If view field is not empty
             elif class_show is not None: 
+                
                 view_file_dest = ''.join(['./templates/', hw_name, '/', class_show, '/', type_show])
                 html_list = []
                 if (os.path.exists(view_file_dest)):
-                    html_list = Program.objects.filter(view_path=view_file_dest)
+                    html_list = Program.objects.filter(view_path=view_file_dest).order_by('name')
             
                 detail['hw_html'] = hw_name
                 detail['class_html'] = class_show
@@ -178,7 +194,7 @@ def home_work(request, hw_name):
                 detail['home_work'] = hwutil.get_all_hw() 
                 detail['home_work'].remove('uploads')
                 detail['html_list'] = html_list
-                        
+                
                 detail['program_list'] = program_list
                 detail['view_code'] = True
                 detail['view_upload_code'] = False
@@ -306,9 +322,6 @@ def list_html(request, hw_html, class_html, type_html, student_html):
                     html_list = sorted(html_list, key=lambda d: d['name']) 
                     
 
-
-        
-                
         return render(request, 'list.html', {'html_list': html_list, 
                                              'hw_html' : hw_html,
                                              'class_html' : class_html, 
@@ -325,3 +338,26 @@ def view_html(request, hw_html, class_html, type_html, student_html, file_name):
         return render(request, path)
     else:
         redirect('sign_in')
+        
+
+@shared_task
+def compare_code(hw_name, class_type, hw_type):
+        
+        code_file_dest = ''.join(['./home_work/', hw_name, '/', class_type, '/', hw_type])
+        view_file_dest = ''.join(['./templates/', hw_name, '/', class_type, '/', hw_type])
+
+        dal_util.execute(code_file_dest, view_file_dest, hw_name)
+        files = os.listdir(code_file_dest)
+        if ('std_code' in files ) and 'command.txt' in files:
+            files.remove('std_code')
+            files.remove('command.txt')
+        teacher_res = ''.join([code_file_dest, '/', 'std_code'])
+        for f in files:
+            if ( f != 'DS_store'):
+                student_res = ''.join([code_file_dest, '/', f])
+                student_diff = ''.join([view_file_dest, '/', f])
+                if os.path.exists(student_diff):              
+                    dal_util.compare(teacher_res, student_res, student_diff, hw_name, view_file_dest, f)
+                
+
+

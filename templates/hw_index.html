@@ -1,14 +1,17 @@
+{% load compress %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DAL</title>
-    <meta name="author" content="David Grzyb">
     <meta name="description" content="">
 
     <!-- Tailwind -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
         .font-family-karla { font-family: karla; }
@@ -26,9 +29,11 @@
     <aside class="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
         <div class="p-6">
             <a href="/home" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">DAL</a>
+            {% if user.is_staff %}
             <a href="/add_hw" class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
                 <i class="fas fa-plus mr-3"></i> 新增作業
             </a>
+            {% endif %}
         </div>
 
         <nav class="text-white text-base font-semibold pt-3">
@@ -40,11 +45,12 @@
             {% endfor %}
         </nav>
         
-
+        {% if user.is_staff %}
         <a href="/delete_hw" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
             <i class="fas fa-arrow-circle-up mr-3"></i>
             刪除作業
         </a>
+        {% endif %}
 
 
     </aside>
@@ -52,7 +58,7 @@
     <aside class="relative bg-gray-800 h-screen w-52 hidden sm:block shadow-xl">
 
         <div class="p-6">
-
+            
             <button id="upload-code-btn" class="w-full bg-white cta-btn font-semibold mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
                 <i class="fas fa-plus mr-3"></i> 上傳程式碼
             </button>
@@ -72,16 +78,18 @@
             <div class="w-1/2"></div>
             <div x-data="{ isOpen: false }" class="relative w-1/2 flex justify-end">
                 <p class="text-sm text-white">{{user.username}}</p>
-            <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
-                <img src="https://api.dicebear.com/7.x/big-smile/svg?seed=Cleo">
-            </button>
-            <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
-            <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
-                <a href="/password_change" class="block px-4 py-2 account-link hover:text-white">Account</a>
-                {% if user.is_staff %}
-                <a href="/sign_up" class="block px-4 py-2 account-link hover:text-white">Add an account</a>
-                {% endif %}
-                <a href="/sign_out" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+                <button @click="isOpen = !isOpen" class="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
+                    <img src="https://api.dicebear.com/7.x/big-smile/svg?seed=Cleo">
+                </button>
+                <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
+                <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
+                    <a href="/password_change" class="block px-4 py-2 account-link hover:text-white">更新密碼</a>
+
+                    {% if user.is_staff %}
+                    <a href="/sign_up" class="block px-4 py-2 account-link hover:text-white">新增帳號</a>
+                    {% endif %}
+                    
+                    <a href="/sign_out" class="block px-4 py-2 account-link hover:text-white">登出</a>
                 </div>
             </div>
         </header>
@@ -204,7 +212,8 @@
                                             <p class="mb-2 text-sm text-white"><span class="font-semibold">程式碼上傳格式: </p>
                                             <p class="mb-2 text-sm text-white"><span class="font-semibold">老師(code.cpp) </p>
                                             <p class="mb-2 text-sm text-white"><span class="font-semibold">學生(.zip 或 .cpp )</p>
-                                            <p class="mb-2 text-sm text-white"><span class="font-semibold">指令(command.txt) </span>{{ form.as_p }}</p>
+                                            <p class="mb-2 text-sm text-white"><span class="font-semibold">指令(command.txt) </span> </p>
+                                            <p class="mb-2 text-sm text-white">{{ form.as_p }}</p>
                                         </div> 
                                         
                                     </label>

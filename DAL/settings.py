@@ -33,9 +33,9 @@ SECRET_KEY = 'django-insecure-y-ac&56wokzoe=+06$@-$+tmru&9dq&_)o@(w4_423xk#4mfww
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lab214b.uk', '140.135.10.102']
+ALLOWED_HOSTS = ['dal.lab214b.uk', '140.135.10.102', '127.0.0.1']
 
-CSRF_TRUSTED_ORIGINS = ['https://lab214b.uk:11111']
+CSRF_TRUSTED_ORIGINS = ['https://dal.lab214b.uk:10000']
 
 # Application definition
 

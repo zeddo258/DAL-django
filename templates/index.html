@@ -1,3 +1,5 @@
+{% load compress %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,9 @@
     <meta name="description" content="">
 
     <!-- Tailwind -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    {% endcompress %}
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
         .font-family-karla { font-family: karla; }
@@ -32,8 +36,6 @@
             {% endif %}
 
         </div>
-
-
         <nav class="text-white text-base font-semibold pt-3">
             {% for hw in home_work %}
             <a href="{% url "home_work" hw_name=hw %}" class="flex items-center nav-item text-white py-4 pl-6 nav-item">
@@ -43,10 +45,12 @@
             {% endfor %}
         </nav>
         
+        {% if user.is_staff %}
         <a href="/delete_hw" class="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4">
             <i class="fas fa-arrow-circle-up mr-3"></i>
             刪除作業
         </a>
+        {% endif %}
 
     </aside>
 
@@ -61,18 +65,18 @@
                 </button>
                 <button x-show="isOpen" @click="isOpen = false" class="h-full w-full fixed inset-0 cursor-default"></button>
                 <div x-show="isOpen" class="absolute w-32 bg-white rounded-lg shadow-lg py-2 mt-16">
-                    <a href="/password_change" class="block px-4 py-2 account-link hover:text-white">Change password</a>
+                    <a href="/password_change" class="block px-4 py-2 account-link hover:text-white">更新密碼</a>
 
                     {% if user.is_staff %}
-                    <a href="/sign_up" class="block px-4 py-2 account-link hover:text-white">Add an account</a>
+                    <a href="/sign_up" class="block px-4 py-2 account-link hover:text-white">新增帳號</a>
                     {% endif %}
                     
-                    <a href="/sign_out" class="block px-4 py-2 account-link hover:text-white">Sign Out</a>
+                    <a href="/sign_out" class="block px-4 py-2 account-link hover:text-white">登出</a>
                 </div>
             </div>
         </header>
 
-        <div class="w-full overflow-x-hidden flex flex-col">
+        <div class="relative w-full overflow-x-hidden flex flex-col">
             <!--Content goes here-->
         </div>
     </div>

@@ -14,6 +14,7 @@ class hwutil:
     # Creating homework directories
     def create_hw(hw_name):
         hw_dest = './home_work/' + hw_name; 
+        
         os.mkdir(hw_dest)
         os.mkdir(hw_dest + '/' + "src" )
         
@@ -80,6 +81,7 @@ class hwutil:
                 shutil.move(file_path, std_code_path)
                 # Copy all the test files into teacher code folder
                 for f in os.listdir(data_path):
+
                     path = ''.join([data_path, '/', f])
                     shutil.copy(path, std_code_path)
                 
@@ -104,9 +106,10 @@ class hwutil:
                 
         # Create  directories and move files from upload to these dir 
         file_list = os.listdir(cwd)
+
         for file in file_list:
             wd = cwd + '/' + file
-            if file !=  "__MACOSX":
+            if file !=  "__MACOSX" :
                 self.get_src_files(self, wd, src_dest, data_path, view_file_dest)
                 shutil.rmtree(wd)
             else:
@@ -116,35 +119,43 @@ class hwutil:
     # extracted file 
     def get_src_files(self, wd, src_dest, data_path, view_file_dest):
         file_list = os.listdir(wd)
+        for i in file_list:
+            if i == ".DS_store":
+                file_list.remove(i)
+
         for file in file_list:
             f = wd + '/' + file
+            print('file:' + file)
             if not os.path.isfile(f) and '.cpp' not in f:
                 self.get_src_files(self, f, src_dest, data_path, view_file_dest)   
             else:
                 try:
-                    final_dest = "".join([src_dest, '/', file.strip('.cpp')])
-                    view_file_final_dest = "".join([view_file_dest, '/', file.strip('.cpp')])
+                    if file.strip('.cpp') == "DS_store":
+                        pass
+                    else:
+                        final_dest = "".join([src_dest, '/', file.strip('.cpp')])
+                        view_file_final_dest = "".join([view_file_dest, '/', file.strip('.cpp')])
                     
-                    # Dir to store cpp file and output
-                    if not os.path.exists(final_dest):
-                        os.mkdir(final_dest)
-                    else:
-                        shutil.rmtree(final_dest)
-                        os.mkdir(final_dest)
+                        # Dir to store cpp file and output
+                        if not os.path.exists(final_dest):
+                            os.mkdir(final_dest)
+                        else:
+                            shutil.rmtree(final_dest)
+                            os.mkdir(final_dest)
                         
-                    # Dir to store the compare's result 
-                    if not os.path.exists(view_file_final_dest):
-                        os.mkdir(view_file_final_dest)
-                    else:
-                        shutil.rmtree(view_file_final_dest)
-                        Program.objects.filter(name=file.strip('.cpp'),view_path=view_file_dest).delete()
-                        os.mkdir(view_file_final_dest)
+                        # Dir to store the compare's result 
+                        if not os.path.exists(view_file_final_dest):
+                            os.mkdir(view_file_final_dest)
+                        else:
+                            shutil.rmtree(view_file_final_dest)
+                            Program.objects.filter(name=file.strip('.cpp'),view_path=view_file_dest).delete()
+                            os.mkdir(view_file_final_dest)
                         
                         
-                    shutil.move(f, final_dest)
-                    for f in os.listdir(data_path):
-                        path = ''.join([data_path, '/', f])
-                        shutil.copy(path, final_dest)
+                        shutil.move(f, final_dest)
+                        for f in os.listdir(data_path):
+                            path = ''.join([data_path, '/', f])
+                            shutil.copy(path, final_dest)
                 except OSError as e:
                     print(e)
                     
